@@ -1,7 +1,7 @@
 /* Catppuccin Macchiato */
 * {
-    font-family: "SF Pro Display", monospace;
-    font-size: 13px;
+    font-family: "SF Pro Display", "Symbols Nerd Font", monospace; 
+    font-size: 15px;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -24,47 +24,47 @@ window#waybar {
     color: #cad3f5;
 }
 
-/* ── Island base ─────────────────────────────────────────── */
+/* ── All left/center/right containers: transparent ────────── */
 .modules-left,
-.modules-center {
-    background: #24273a;
-    border-radius: 12px;
-    margin: 6px 0;
-    padding: 0 6px;
-}
-
-.modules-left  { margin-left: 10px; }
-
-/* modules-right is transparent — child groups are the islands */
+.modules-center,
 .modules-right {
     background: transparent;
     margin: 0;
     padding: 0;
-    margin-right: 10px;
 }
 
-/* ── Status island (weather / audio / network / language) ── */
-#status {
+.modules-left  { margin-left:  10px; }
+.modules-right { margin-right: 10px; }
+
+/* ── Every group becomes its own island ───────────────────── */
+#arch-island,
+#clock-island,
+#updates-island,
+#notif-island,
+#weather-island,
+#audio-island,
+#network-island,
+#language-island {
     background: #24273a;
-    border-radius: 12px;
-    margin: 6px 4px 6px 0;
+    border-radius: 24px;
+    margin: 6px 4px;
     padding: 0 6px;
 }
 
 /* ── Power island ────────────────────────────────────────── */
-#custom-power {
+#power-island {
     background: #24273a;
-    border-radius: 12px;
-    margin: 6px 0;
-    padding: 0 14px;
-    color: #ed8796;
-    font-size: 15px;
-    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 24px;
+    margin: 6px 0 6px 4px;
+    padding: 0 6px;
 }
 
-#custom-power:hover {
-    background: #ed8796;
-    color: #24273a;
+/* ── Workspaces center island ────────────────────────────── */
+#workspaces {
+    background: #24273a;
+    border-radius: 24px;
+    margin: 6px 4px;
+    padding: 0 4px;
 }
 
 /* ── Generic module spacing ──────────────────────────────── */
@@ -73,37 +73,54 @@ window#waybar {
 #custom-updates,
 #pulseaudio,
 #network,
-#language {
+#language,
+#custom-weather,
+#custom-power,
+#custom-swaync {
     padding: 0 10px;
     color: #cad3f5;
 }
 
-/* ── Arch logo ───────────────────────────────────────────── */
-#custom-arch {
-    color: #8aadf4;
-    font-size: 16px;
-    padding-left: 12px;
+/* ── Per-module accent colors ────────────────────────────── */
+#custom-arch    { color: #8aadf4; font-size: 16px; padding-left: 12px; }
+#clock          { color: #c0e8f0; }
+#custom-updates { color: #a6da95; }
+#custom-updates.has-updates { color: #f5a97f; }
+#custom-weather { color: #eed49f; }
+#pulseaudio     { color: #91d7e3; }
+#pulseaudio.muted { color: #6e738d; }
+#network        { color: #a6da95; }
+#network.disconnected { color: #ed8796; }
+#network.wifi   { color: #8bd5ca; }
+#language       { color: #c6a0f6; padding: 0 12px 0 4px; }
+
+/* ── Notification button ─────────────────────────────────── */
+#custom-swaync {
+    color: #cad3f5;
 }
 
-/* ── Clock ───────────────────────────────────────────────── */
-#clock {
-    color: #b7bdf8;
+#custom-swaync.notification {
+    color: #91d7e3;
 }
 
-/* ── Updates ─────────────────────────────────────────────── */
-#custom-updates {
-    color: #a6da95;
+#custom-swaync.dnd-none,
+#custom-swaync.dnd-notification {
+    color: #ee99a0;
 }
 
-#custom-updates.has-updates {
-    color: #f5a97f;
+/* ── Power button ────────────────────────────────────────── */
+#custom-power {
+    color: #ed8796;
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* ── Workspaces ──────────────────────────────────────────── */
-#workspaces {
-    padding: 0 4px;
+#custom-power:hover {
+    color: #e04050;
+    border-radius: 24px;
 }
 
+/* ── Workspaces buttons ──────────────────────────────────── */
 #workspaces button {
     min-width: 24px;
     min-height: 16px;
@@ -111,44 +128,36 @@ window#waybar {
     padding: 0;
     font-size: 0px;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 16px;
     transition: all 0.2s ease;
     box-shadow: none;
-
-    /* empty — small subtle pill, number hidden */
     background: #2a2d3d;
     color: transparent;
 }
-
 #workspaces button:hover {
     background: #363a4f;
     min-width: 44px;
 }
-
-/* occupied — bluish tint, number still hidden, slightly bigger */
 #workspaces button:not(.empty):not(.active) {
     background: #263350;
     color: transparent;
     min-width: 28px;
     min-height: 16px;
-    box-shadow: none;
 }
-
-/* active — full size, gradient, number visible */
 #workspaces button.active {
     background: linear-gradient(90deg, #6d9ff0 0%, #8aadf4 50%, #b7bdf8 100%);
     color: #1e2030;
     font-size: 11px;
     font-weight: 700;
     min-width: 72px;
-    min-height: 22px;
+    /* ── Workspaces buttons ──────────────────────────────────── */
     margin: 8px 3px;
+    border-radius: 16px;
     box-shadow:
         inset 0 -2px 0 #5b8ef5,
         0 0 10px rgba(138, 173, 244, 0.35),
         0 0 20px rgba(138, 173, 244, 0.15);
 }
-
 #workspaces button.urgent {
     background: linear-gradient(90deg, #e57082 0%, #ed8796 100%);
     color: #1e2030;
@@ -156,41 +165,15 @@ window#waybar {
     min-width: 72px;
     min-height: 22px;
     margin: 8px 3px;
+    border-radius: 16px;
     box-shadow: inset 0 -2px 0 #c9424f, 0 0 10px rgba(237, 135, 150, 0.3);
 }
 
 
 
-/* ── Weather ─────────────────────────────────────────────── */
-#custom-weather {
-    color: #eed49f;
-    padding: 0 10px;
-}
+/* ── symbols align ──────────────────────────────────── */
 
-/* ── Pulseaudio ──────────────────────────────────────────── */
-#pulseaudio {
-    color: #91d7e3;
-}
-
-#pulseaudio.muted {
-    color: #6e738d;
-}
-
-/* ── Network ─────────────────────────────────────────────── */
-#network {
-    color: #a6da95;
-}
-
-#network.disconnected {
-    color: #ed8796;
-}
-
-#network.wifi {
-    color: #8bd5ca;
-}
-
-/* ── Language ────────────────────────────────────────────── */
 #language {
-    color: #c6a0f6;
-    padding: 0 12px 0 4px;
+    padding-left: 9px;
 }
+
