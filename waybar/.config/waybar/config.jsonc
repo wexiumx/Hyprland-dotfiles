@@ -1,8 +1,10 @@
 {
     "layer": "top",
+    "output": "HDMI-A-2",
+    "height": 36,
     "modules-left": ["custom/arch", "clock", "custom/updates"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "hyprland/language"],
+    "modules-right": ["custom/weather", "pulseaudio", "network", "hyprland/language"],
     "sway/window": {
     "max-length": 50
     },
@@ -20,6 +22,13 @@
         "on-click": "ghostty -e zsh -c 'yay -Syyuu; echo Exit code: $?; echo Press enter to close; read'",
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates --no-zero-output"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "python ~/.config/waybar/scripts/waybar-wttr.py",
+        "interval": 1800,
+        "on-click": "xdg-open https://wttr.in/Vilnius"
     },
     "clock": {
         "format": "{:%H:%M}",
@@ -48,9 +57,10 @@
     },
     "network": {
         "interface": "enp9s0",
-        "format-ethernet": "󰤯",
-        "format-disconnected": "󰌙",
-        "format-wifi": "{essid} ({signalStrength}%) 🌐",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "format-wifi": "{essid} ({signalStrength}%) {icon}",
+        "format-icons": ["󰤢", "󰤥", "󰤨"],
         "tooltip-format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format-disconnected": "Disconnected",

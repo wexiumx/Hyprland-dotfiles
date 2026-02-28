@@ -1,0 +1,151 @@
+/* Catppuccin Macchiato */
+* {
+    font-family: "SF Pro Display", monospace; 
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* ── Palette ─────────────────────────────────────────────── */
+/* base    #24273a  mantle  #1e2030  crust   #181926          */
+/* surface0 #363a4f surface1 #494d64  surface2 #5b6078        */
+/* overlay0 #6e738d overlay1 #8087a2  overlay2 #939ab7        */
+/* subtext0 #a5adcb subtext1 #b8c0e0  text    #cad3f5         */
+/* rosewater #f4dbd6 flamingo #f0c6c6 pink   #f5bde6         */
+/* mauve   #c6a0f6  red     #ed8796  maroon  #ee99a0         */
+/* peach   #f5a97f  yellow  #eed49f  green   #a6da95         */
+/* teal    #8bd5ca  sky     #91d7e3  sapphire #7dc4e4        */
+/* blue    #8aadf4  lavender #b7bdf8                         */
+
+/* ── Bar window ──────────────────────────────────────────── */
+window#waybar {
+    background: transparent;
+    color: #cad3f5;
+}
+
+/* ── Island base ─────────────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: #24273a;
+    border-radius: 12px;
+    margin: 6px 0;
+    padding: 0 6px;
+}
+
+
+
+.modules-left   { margin-left: 10px;  }
+.modules-right  { margin-right: 10px; }
+
+/* ── Generic module spacing ──────────────────────────────── */
+#custom-arch,
+#clock,
+#custom-updates,
+#pulseaudio,
+#network,
+#language {
+    padding: 0 10px;
+    color: #cad3f5;
+}
+
+/* ── Arch logo ───────────────────────────────────────────── */
+#custom-arch {
+    color: #8aadf4;
+    font-size: 16px;
+    padding-left: 12px;
+}
+
+/* ── Clock ───────────────────────────────────────────────── */
+#clock {
+    color: #b7bdf8;
+}
+
+/* ── Updates ─────────────────────────────────────────────── */
+#custom-updates {
+    color: #a6da95;
+}
+
+#custom-updates.has-updates {
+    color: #f5a97f;
+}
+
+
+/* ── Workspaces ──────────────────────────────────────────── */
+#workspaces {
+    padding: 0 9px;
+}
+#workspaces button {
+    padding: 0 15px;
+    margin: 7px 4px;
+    min-height: 0;
+    color: #6e738d;
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    min-width: 26px;
+    font-size: 12px;
+}
+
+#workspaces button:hover {
+    background: #363a4f;
+    color: #a5adcb;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    background: #8aadf4;
+    color: #24273a;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0 10px;
+    min-width: 26px;
+}
+
+/* occupied — dim surface with muted lavender text */
+#workspaces button.occupied:not(.active) {
+    background: #2d3045;
+    color: #8087a2;
+    border-radius: 8px;
+}
+#workspaces button.urgent {
+    background: #ed8796;
+    color: #24273a;
+    border-radius: 8px;
+}
+
+/* ── Weather ──────────────────────────────────────────── */
+
+#custom-weather {
+    color: #eed49f;
+    padding: 0 10px;
+}
+
+/* ── Pulseaudio ──────────────────────────────────────────── */
+#pulseaudio {
+    color: #91d7e3;
+}
+
+#pulseaudio.muted {
+    color: #6e738d;
+}
+
+/* ── Network ─────────────────────────────────────────────── */
+#network {
+    color: #a6da95;
+}
+
+#network.disconnected {
+    color: #ed8796;
+}
+
+#network.wifi {
+    color: #8bd5ca;
+}
+
+/* ── Language ────────────────────────────────────────────── */
+#language {
+    color: #c6a0f6;
+    padding: 0 12px 0 4px;  /* reduced left padding from 10px */
+}

@@ -1,6 +1,6 @@
 /* Catppuccin Macchiato */
 * {
-    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-family: "SF Pro Display", monospace;
     font-size: 13px;
     border: none;
     border-radius: 0;
@@ -112,6 +112,13 @@ window#waybar {
     background: #ed8796;
     color: #24273a;
     border-radius: 8px;
+}
+
+/* ── Weather ──────────────────────────────────────────── */
+
+#custom-weather {
+    color: #eed49f;
+    padding: 0 10px;
 }
 
 /* ── Pulseaudio ──────────────────────────────────────────── */
