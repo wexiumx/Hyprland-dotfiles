@@ -4,7 +4,12 @@
     "height": 36,
     "modules-left": ["custom/arch", "clock", "custom/updates"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/weather", "pulseaudio", "network", "hyprland/language"],
+    "modules-right": ["group/status", "custom/power"],
+
+    "group/status": {
+        "orientation": "horizontal",
+        "modules": ["custom/weather", "pulseaudio", "network", "hyprland/language"]
+    },
     "sway/window": {
     "max-length": 50
     },
@@ -34,6 +39,11 @@
         "format": "{:%H:%M}",
         "format-alt": "{:%Y-%m-%d}",
         "tooltip": false
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": "false",
+        "on-click": "wlogout"
     },
     "pulseaudio": {
     "format": "{volume}% {icon}",

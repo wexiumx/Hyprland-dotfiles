@@ -4,7 +4,12 @@
     "height": 48,
     "modules-left": ["custom/arch", "clock", "custom/updates"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/weather", "pulseaudio", "network", "hyprland/language"],
+    "modules-right": ["group/status", "custom/power"],
+
+    "group/status": {
+        "orientation": "horizontal",
+        "modules": ["custom/weather", "pulseaudio", "network", "hyprland/language"]
+    },
     "sway/window": {
     "max-length": 50
     },
@@ -29,6 +34,11 @@
         "exec": "python ~/.config/waybar/scripts/waybar-wttr.py",
         "interval": 1800,
         "on-click": "xdg-open https://wttr.in/Vilnius"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": "false",
+        "on-click": "wlogout"
     },
     "clock": {
         "format": "{:%H:%M}",

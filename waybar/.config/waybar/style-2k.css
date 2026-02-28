@@ -26,18 +26,46 @@ window#waybar {
 
 /* ── Island base ─────────────────────────────────────────── */
 .modules-left,
-.modules-center,
-.modules-right {
+.modules-center {
     background: #24273a;
     border-radius: 12px;
     margin: 6px 0;
     padding: 0 6px;
 }
 
+.modules-left  { margin-left: 10px; }
 
+/* modules-right is transparent — child groups are the islands */
+.modules-right {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
 
-.modules-left   { margin-left: 10px;  }
-.modules-right  { margin-right: 10px; }
+/* ── Status island (weather / audio / network / language) ── */
+#status {
+    background: #24273a;
+    border-radius: 12px;
+    margin: 6px 4px 6px 0;
+    padding: 0 6px;
+}
+
+/* ── Power island ────────────────────────────────────────── */
+#custom-power {
+    background: #24273a;
+    border-radius: 12px;
+    margin: 6px 0;
+    padding: 0 14px;
+    color: #ed8796;
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#custom-power:hover {
+    background: #ed8796;
+    color: #24273a;
+}
 
 /* ── Generic module spacing ──────────────────────────────── */
 #custom-arch,
@@ -71,52 +99,69 @@ window#waybar {
     color: #f5a97f;
 }
 
-
 /* ── Workspaces ──────────────────────────────────────────── */
 #workspaces {
-    padding: 0 9px;
+    padding: 0 4px;
 }
+
 #workspaces button {
-    padding: 0 10px;
-    margin: 7px 4px;
-    min-height: 0;
-    color: #6e738d;
-    background: transparent;
+    min-width: 24px;
+    min-height: 16px;
+    margin: 10px 3px;
+    padding: 0;
+    font-size: 0px;
+    font-weight: 600;
     border-radius: 8px;
     transition: all 0.2s ease;
-    min-width: 26px;
-    font-size: 12px;
+    box-shadow: none;
+
+    /* empty — small subtle pill, number hidden */
+    background: #2a2d3d;
+    color: transparent;
 }
 
 #workspaces button:hover {
     background: #363a4f;
-    color: #a5adcb;
+    min-width: 44px;
+}
+
+/* occupied — bluish tint, number still hidden, slightly bigger */
+#workspaces button:not(.empty):not(.active) {
+    background: #263350;
+    color: transparent;
+    min-width: 28px;
+    min-height: 16px;
     box-shadow: none;
 }
 
+/* active — full size, gradient, number visible */
 #workspaces button.active {
-    background: #8aadf4;
-    color: #24273a;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 0 10px;
-    min-width: 26px;
+    background: linear-gradient(90deg, #6d9ff0 0%, #8aadf4 50%, #b7bdf8 100%);
+    color: #1e2030;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 72px;
+    min-height: 22px;
+    margin: 8px 3px;
+    box-shadow:
+        inset 0 -2px 0 #5b8ef5,
+        0 0 10px rgba(138, 173, 244, 0.35),
+        0 0 20px rgba(138, 173, 244, 0.15);
 }
 
-/* occupied — dim surface with muted lavender text */
-#workspaces button.occupied:not(.active) {
-    background: #2d3045;
-    color: #8087a2;
-    border-radius: 8px;
-}
 #workspaces button.urgent {
-    background: #ed8796;
-    color: #24273a;
-    border-radius: 8px;
+    background: linear-gradient(90deg, #e57082 0%, #ed8796 100%);
+    color: #1e2030;
+    font-size: 11px;
+    min-width: 72px;
+    min-height: 22px;
+    margin: 8px 3px;
+    box-shadow: inset 0 -2px 0 #c9424f, 0 0 10px rgba(237, 135, 150, 0.3);
 }
 
-/* ── Weather ──────────────────────────────────────────── */
 
+
+/* ── Weather ─────────────────────────────────────────────── */
 #custom-weather {
     color: #eed49f;
     padding: 0 10px;
@@ -147,5 +192,5 @@ window#waybar {
 /* ── Language ────────────────────────────────────────────── */
 #language {
     color: #c6a0f6;
-    padding: 0 12px 0 4px;  /* reduced left padding from 10px */
+    padding: 0 12px 0 4px;
 }
