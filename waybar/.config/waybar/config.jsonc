@@ -63,7 +63,7 @@
             "has-updates": "󰭽 ",
             "updated": "✓"
         },
-        "on-click": "ghostty -e zsh -c 'yay -Syyuu; echo Exit code: $?; echo Press enter to close; read'",
+        "on-click": "ghostty -e zsh -c 'yay -Syu'",
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates --no-zero-output"
     },

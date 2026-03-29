@@ -1,0 +1,50 @@
+window {
+    background-color: rgba(24, 25, 38, 0.65);
+    font-family: "JetBrains Mono", monospace;
+}
+
+button {
+    color: #8aadf4;
+    background-color: rgba(138, 173, 244, 0.08);
+    border: 1px solid rgba(138, 173, 244, 0.22);
+    border-radius: 16px;
+    background-image: none;
+    min-width: 110px;
+    min-height: 100px;
+    max-width: 110px;
+    max-height: 100px;
+    margin: 8px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+button:hover {
+    background-color: rgba(138, 173, 244, 0.22);
+    border-color: rgba(138, 173, 244, 0.65);
+    color: #cad3f5;
+}
+
+button:active {
+    background-color: rgba(138, 173, 244, 0.32);
+    color: #ffffff;
+}
+
+button label {
+    font-size: 10px;
+    font-weight: 700;
+    color: inherit;
+}
+
+#shutdown {
+    background-image: none;
+}
+
+#reboot {
+    background-image: none;
+}
+
+#sleep {
+    background-image: none;
+}
+
