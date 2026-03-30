@@ -51,14 +51,6 @@ window#waybar {
     padding: 0 6px;
 }
 
-/* ── Power island ────────────────────────────────────────── */
-#power-island {
-    background: #24273a;
-    border-radius: 24px;
-    margin: 6px 0 6px 4px;
-    padding: 0 6px;
-}
-
 /* ── Workspaces center island ────────────────────────────── */
 #workspaces {
     background: #24273a;
@@ -75,7 +67,6 @@ window#waybar {
 #network,
 #language,
 #custom-weather,
-#custom-power,
 #custom-swaync {
     padding: 0 10px;
     color: #cad3f5;
@@ -106,18 +97,6 @@ window#waybar {
 #custom-swaync.dnd-none,
 #custom-swaync.dnd-notification {
     color: #ee99a0;
-}
-
-/* ── Power button ────────────────────────────────────────── */
-#custom-power {
-    color: #ed8796;
-    font-size: 15px;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-#custom-power:hover {
-    color: #e04050;
-    border-radius: 24px;
 }
 
 /* ── Workspaces buttons ──────────────────────────────────── */
