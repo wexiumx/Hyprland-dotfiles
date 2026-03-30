@@ -2,7 +2,7 @@
     "layer": "top",
     "height": 40,
     "modules-left": ["group/arch-island", "group/clock-island", "group/updates-island"],
-    "modules-center": ["group/notif-island","hyprland/workspaces"],
+    "modules-center": ["hyprland/workspaces", "group/notif-island"],
     "modules-right": ["group/weather-island", "group/audio-island", "group/network-island", "group/language-island"],
 
 
