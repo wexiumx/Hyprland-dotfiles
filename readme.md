@@ -1,10 +1,9 @@
+> [!IMPORTANT]
+> This repo is no longer maintained anymore as I moved to niri.
+
 # Hyprland Rice 
 
 My personal Hyprland configuration on Arch Linux.
-
-## Status 
-
-This is a work in progress. The setup is raw and I'm still actively ricing and tweaking things.
 
 ## About
 
