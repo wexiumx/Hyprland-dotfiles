@@ -1,4 +1,4 @@
-> [!IMPORTANT]
+> [!WARNING]
 > This repo is no longer maintained anymore as I moved to niri.
 
 # Hyprland Rice 
